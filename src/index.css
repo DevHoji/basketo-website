@@ -89,7 +89,53 @@
   }
 
   body {
-    @apply bg-basketo-darker text-foreground;
+    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .bg-basketo-darker {
+    @apply bg-[#030712];
+  }
+  
+  .bg-basketo-dark {
+    @apply bg-[#0F172A];
+  }
+  
+  .text-basketo-purple {
+    @apply text-[#6C3CE9];
+  }
+  
+  .bg-basketo-purple {
+    @apply bg-[#6C3CE9];
+  }
+  
+  .text-basketo-blue {
+    @apply text-[#3B82F6];
+  }
+  
+  .bg-basketo-blue {
+    @apply bg-[#3B82F6];
+  }
+  
+  .text-basketo-teal {
+    @apply text-[#14B8A6];
+  }
+  
+  .bg-basketo-teal {
+    @apply bg-[#14B8A6];
+  }
+  
+  .border-basketo-purple {
+    @apply border-[#6C3CE9];
+  }
+  
+  .border-basketo-blue {
+    @apply border-[#3B82F6];
+  }
+  
+  .border-basketo-teal {
+    @apply border-[#14B8A6];
   }
 }
