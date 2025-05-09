@@ -141,27 +141,27 @@
 
   /* Sidebar Styling */
   .bg-sidebar {
-    @apply bg-sidebar-background;
+    @apply bg-[hsl(var(--sidebar-background))];
   }
 
   .text-sidebar-foreground {
-    @apply text-sidebar-foreground;
+    @apply text-[hsl(var(--sidebar-foreground))];
   }
 
   .bg-sidebar-accent {
-    @apply bg-sidebar-accent;
+    @apply bg-[hsl(var(--sidebar-accent))];
   }
 
   .text-sidebar-accent-foreground {
-    @apply text-sidebar-accent-foreground;
+    @apply text-[hsl(var(--sidebar-accent-foreground))];
   }
 
   .border-sidebar-border {
-    @apply border-sidebar-border;
+    @apply border-[hsl(var(--sidebar-border))];
   }
 
   .ring-sidebar-ring {
-    @apply ring-sidebar-ring;
+    @apply ring-[hsl(var(--sidebar-ring))];
   }
 
   /* Documentation specific styles */
