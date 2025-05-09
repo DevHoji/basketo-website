@@ -66,7 +66,7 @@ const Header = () => {
                 className={`text-sm ${
                   location.pathname === item.href || 
                   (item.name === "Land_" && location.pathname === "/") 
-                    ? "text-white font-medium" 
+                    ? "text-white font-bold" 
                     : "text-gray-300 hover:text-white"
                 } transition-colors`}
               >
