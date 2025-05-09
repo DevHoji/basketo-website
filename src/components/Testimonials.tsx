@@ -7,6 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 const Testimonials = () => {
@@ -37,19 +38,21 @@ const Testimonials = () => {
     },
   ];
 
-  const carouselRef = useRef<{ scrollNext: () => void } | null>(null);
+  const [api, setApi] = React.useState<CarouselApi>();
 
   useEffect(() => {
+    if (!api) {
+      return;
+    }
+
     // Set up the auto-scroll interval
     const interval = setInterval(() => {
-      if (carouselRef.current) {
-        carouselRef.current.scrollNext();
-      }
+      api.scrollNext();
     }, 5000); // Change testimonial every 5 seconds
 
     // Clean up the interval on component unmount
     return () => clearInterval(interval);
-  }, []);
+  }, [api]);
 
   return (
     <section className="py-20 bg-basketo-dark">
@@ -68,7 +71,7 @@ const Testimonials = () => {
               loop: true,
             }}
             className="w-full"
-            ref={carouselRef as React.RefObject<HTMLDivElement>}
+            setApi={setApi}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
