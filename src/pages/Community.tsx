@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Users, MessageSquare, Github, Twitter, Disc as Discord, Globe, TrendingUp, Star, Heart, Award, Code, Coffee } from "lucide-react";
+import { Users, MessageSquare, Github, Twitter, Disc as Discord, Globe, TrendingUp, Star, Heart, Award, Code, Coffee, Calendar } from "lucide-react";
 
 const Community = () => {
   const stats = [
