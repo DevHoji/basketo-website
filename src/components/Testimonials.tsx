@@ -1,5 +1,5 @@
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -37,6 +37,20 @@ const Testimonials = () => {
     },
   ];
 
+  const carouselRef = useRef<{ scrollNext: () => void } | null>(null);
+
+  useEffect(() => {
+    // Set up the auto-scroll interval
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollNext();
+      }
+    }, 5000); // Change testimonial every 5 seconds
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-20 bg-basketo-dark">
       <div className="container mx-auto px-4">
@@ -54,6 +68,7 @@ const Testimonials = () => {
               loop: true,
             }}
             className="w-full"
+            ref={carouselRef as React.RefObject<HTMLDivElement>}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
