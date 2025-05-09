@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import ThemeToggle from "./ThemeToggle";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const location = useLocation();
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -44,7 +46,9 @@ const Header = () => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className={`text-gray-300 hover:text-white transition-colors ${
+                      location.pathname === item.href ? "text-white font-medium" : ""
+                    }`}
                   >
                     {item.name}
                   </a>
@@ -60,7 +64,10 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 className={`text-sm ${
-                  item.name === "Land_" ? "text-white font-medium" : "text-gray-300 hover:text-white"
+                  location.pathname === item.href || 
+                  (item.name === "Land_" && location.pathname === "/") 
+                    ? "text-white font-medium" 
+                    : "text-gray-300 hover:text-white"
                 } transition-colors`}
               >
                 {item.name}
